@@ -100,8 +100,7 @@ public:
         if (num > length() + 1) return false;
         ListNode *next = head;
         ListNode *prev = nullptr;
-        int x;
-        for (x = 0; x < num - 1; x++) {
+        for (int x = 0; x < num - 1; x++) {
             prev = next;
             next = next->getNext();
         }
@@ -115,28 +114,34 @@ public:
 // main function to demonstrate class
 int main() {
     List list1; //uses default constructor to create an empty list
+    printf("The list is currently %d nodes long\n", list1.length());
+
     const char *first = "first string";
     Item itema(1, first);
     list1.append(itema); //appends to list
-
+    printf("Adding item  #%d to the list\n", itema.getKey());
     const char *second = "second string";
     Item itemb(2, second);
     list1.append(itemb); //appends to list
-
+    printf("Adding item  #%d to the list\n", itemb.getKey());
     const char *third = "third string";
     Item itemc(3, third);
     list1.append(itemc); //append to list
+    printf("Adding item  #%d to the list\n", itemc.getKey());
+    printf("The list is currently %d nodes long\n\n", list1.length()); //prints length of list
 
-    printf("The list is currently %d nodes long\n", list1.length()); //prints length of list
     Item copy;
     list1.remove(copy); //removes first node of the list
     printf("Item #%d was removed\n", copy.getKey());
-    printf("The list is currently %d nodes long\n", list1.length());
-    list1.insert(itema, 3); //inserts item into third node of list
-    list1.empty();
-    printf("The list is currently %d nodes long\n", list1.length());
+    printf("The list is currently %d nodes long\n\n", list1.length());
+
+    list1.insert(itema, 2); //inserts item into third node of list
+    printf("Item #%d was added to position 2\n", itema.getKey());
+    printf("The list is currently %d nodes long\n\n", list1.length());
 
     List list2 = list1;
     printf("The copied list is currently %d nodes long\n", list2.length());
-    return 0;
+
+    list1.empty();
+    printf("The list is currently %d nodes long\n", list1.length());
 }
