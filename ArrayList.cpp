@@ -28,6 +28,7 @@ public:
 
     ~ArrayList() {
         delete array;
+        array = nullptr;
     }
 
     int length() {
