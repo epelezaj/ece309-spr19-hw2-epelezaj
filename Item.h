@@ -6,7 +6,27 @@
 
 
 class Item {
+private:
+    int key;
+    const char *value;
+public:
+    Item(int k = 0, const char *v = nullptr) {
+        key = k;
+        value = v;
+    }
 
+    int getKey() {
+        return key;
+    }
+
+    const char *getValue() {
+        return value;
+    }
+
+    Item(const Item &i) {
+        key = i.key;
+        value = i.value;
+    }
 };
 
 
